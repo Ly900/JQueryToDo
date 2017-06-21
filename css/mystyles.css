@@ -2,7 +2,8 @@ body,
 div,
 h1,
 html,
-p {
+p,
+li {
   padding: 0;
   margin: 0;
   border: 0;
@@ -42,7 +43,6 @@ input#to-do {
 
 div.to-do-helper {
   color: #E91E63;
-  padding: 1%;
   position: relative;
   bottom: 0;
   transition: .2s;
@@ -59,10 +59,17 @@ button#add-to-do {
   text-transform: uppercase;
   border: 1px solid black;
   display: block;
-  margin: 5% auto 10%;
+  margin: 2% auto 1%;
   width: 50%;
+  position: relative;
+  background-color: #E91E63;
+  border: none;
   font-weight: bolder;
   font-size: 3rem; }
+  button#add-to-do:active, button#add-to-do:focus {
+    outline: none; }
+  button#add-to-do:active {
+    top: 5px; }
 
 /****** ERROR MESSAGE ******/
 div.message p {
