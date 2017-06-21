@@ -1,12 +1,20 @@
-html, body, div, p, h1 {
+body,
+div,
+h1,
+html,
+p {
   padding: 0;
   margin: 0;
   border: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-size: 16px; }
+
+html {
+  font-size: 16px; }
 
 body {
-  font-family: "Raleway", sans-serif;
-  font-size: 16px; }
+  font-family: "Bubbler One", sans-serif;
+  font-size: 100%; }
 
 /********** MAIN STYLES **********/
 h1#title {
@@ -20,19 +28,22 @@ input#to-do {
   width: 100%;
   border: 1px solid gray;
   padding: 5px;
-  border-radius: 2px; }
+  border-radius: 2px;
+  font-size: 2rem; }
 
 button#add-to-do {
   text-transform: uppercase;
-  font-weight: bolder;
   border: 1px solid black;
   display: block;
   margin: 5% auto 10%;
-  width: 50%; }
+  width: 50%;
+  font-weight: bolder;
+  font-size: 3rem; }
 
 li.to-do {
   padding: 2%;
-  cursor: pointer; }
+  cursor: pointer;
+  font-size: 2.5rem; }
   li.to-do:hover {
     background-color: #eee; }
 
@@ -41,12 +52,12 @@ div.message p {
   text-align: center;
   transition: 2s;
   color: red;
-  opacity: 0; }
-
-p.invisible {
-  opacity: 0; }
-p.visible {
-  opacity: 1; }
+  opacity: 0;
+  font-size: 1.8rem; }
+  div.message p.invisible {
+    opacity: 0; }
+  div.message p.visible {
+    opacity: 1; }
 
 /* For screens < 600px */
 
