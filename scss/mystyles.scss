@@ -46,7 +46,7 @@ input#to-do {
       left: 0;
       right: 0;
     }
-    padding: 5px;
+    padding: 30px 5px 0;
     border-radius: 2px;
     font-size: 2rem;
     &:focus {
@@ -54,17 +54,21 @@ input#to-do {
     }
 }
 
-div.new-to-do-help {
+div.to-do-helper {
   color: #E91E63;
   padding: 1%;
   position: relative;
+  bottom: 0;
+  transition: .2s;
+  opacity: 0;
   font: {
     size: 20px;
     weight: bolder;
     size: 1.5rem;
   }
   &.animated {
-    bottom: 20px;
+    bottom: 100px;
+    opacity: 1;
   }
 }
 

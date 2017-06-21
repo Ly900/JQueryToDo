@@ -4,6 +4,7 @@ $(document).ready(function() {
     var $toDoInput = $("input#to-do");
     var $toDoUl = $("ol.to-do");
     var $errorMsg = $("p");
+    var $toDoHelper = $("div.to-do-helper");
 
     $addBtn.on("click", function() {
         var newToDo = $toDoInput.val();
@@ -22,11 +23,21 @@ $(document).ready(function() {
 
     $toDoInput.on("click", function() {
       $(this).attr("placeholder", "");
+      moveToDoHelper();
     })
+
+    function moveToDoHelper() {
+      $toDoHelper.addClass("animated");
+    }
 
     $toDoInput.blur(function() {
       $(this).attr("placeholder", "New To Do");
+      hideToDoHelper();
     })
+
+    function hideToDoHelper() {
+      $toDoHelper.removeClass("animated");
+    }
 
     function addToDo(newToDo) {
         var newLi = "<li class='to-do'>" + newToDo + "</li>";

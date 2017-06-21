@@ -34,21 +34,25 @@ input#to-do {
   border-top: 0;
   border-left: 0;
   border-right: 0;
-  padding: 5px;
+  padding: 30px 5px 0;
   border-radius: 2px;
   font-size: 2rem; }
   input#to-do:focus {
     outline: none; }
 
-div.new-to-do-help {
+div.to-do-helper {
   color: #E91E63;
   padding: 1%;
   position: relative;
+  bottom: 0;
+  transition: .2s;
+  opacity: 0;
   font-size: 20px;
   font-weight: bolder;
   font-size: 1.5rem; }
-  div.new-to-do-help.animated {
-    bottom: 20px; }
+  div.to-do-helper.animated {
+    bottom: 100px;
+    opacity: 1; }
 
 /****** ADD BUTTON ******/
 button#add-to-do {
