@@ -1,0 +1,68 @@
+html, body, div, p, h1 {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+}
+
+
+/********** MAIN STYLES **********/
+
+h1#title {
+    text-align: center;
+    padding: 2%;
+    margin: 2%;
+    font-size: 4rem;
+    font-weight: bolder;
+}
+
+input#to-do {
+    width: 100%;
+    border: 1px solid gray;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+button#add-to-do {
+    text-transform: uppercase;
+    font-weight: bolder;
+    border: 1px solid black;
+    display: block;
+    margin: 5% auto 10%;
+    width: 50%;
+}
+
+li.to-do {
+  padding: 2%;
+  cursor: pointer;
+}
+
+li.to-do:hover {
+  background-color: #eee;
+}
+
+div.message p {
+  display: block;
+  text-align: center;
+  transition: 2s;
+  color: red;
+  opacity: 0;
+}
+
+p.invisible {
+  opacity: 0;
+}
+
+p.visible {
+  opacity: 1;
+}
+
+
+/* For screens < 600px */
+
+@media (max-width: 600px) {}
