@@ -7,8 +7,12 @@ p {
     margin: 0;
     border: 0;
     box-sizing: border-box;
-    font-size: 16px;
 }
+
+/*********************************
+MAIN STYLES
+*********************************/
+$mainPinkColor: #E91E63;
 
 html {
   font-size: 16px;
@@ -20,7 +24,7 @@ body {
         size: 100%;
     }
 }
-/********** MAIN STYLES **********/
+
 h1#title {
     text-align: center;
     padding: 2%;
@@ -31,14 +35,20 @@ h1#title {
     }
 }
 
+/****** TO DO INPUT ******/
 input#to-do {
     width: 100%;
     border: 1px solid gray;
     padding: 5px;
     border-radius: 2px;
     font-size: 2rem;
+    &:focus {
+      outline: none;
+      box-shadow: 1px 0px 5px $mainPinkColor;
+    }
 }
 
+/****** ADD BUTTON ******/
 button#add-to-do {
     text-transform: uppercase;
     border: 1px solid black;
@@ -51,15 +61,7 @@ button#add-to-do {
     }
 }
 
-li.to-do {
-    padding: 2%;
-    cursor: pointer;
-    font-size: 2.5rem;
-    &:hover {
-        background-color: #eee;
-    }
-}
-
+/****** ERROR MESSAGE ******/
 div.message p {
     display: block;
     text-align: center;
@@ -72,6 +74,17 @@ div.message p {
     }
     &.visible {
         opacity: 1;
+    }
+}
+
+
+/****** TO DO'S ******/
+li.to-do {
+    padding: 2%;
+    cursor: pointer;
+    font-size: 2.5rem;
+    &:hover {
+        background-color: #eee;
     }
 }
 
