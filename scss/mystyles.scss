@@ -40,10 +40,10 @@ button#add-to-do {
 li.to-do {
   padding: 2%;
   cursor: pointer;
-}
+  &:hover {
+    background-color: #eee;
+  }
 
-li.to-do:hover {
-  background-color: #eee;
 }
 
 div.message p {
@@ -54,14 +54,14 @@ div.message p {
   opacity: 0;
 }
 
-p.invisible {
-  opacity: 0;
+p {
+    &.invisible {
+    opacity: 0;
+  }
+  &.visible {
+    opacity: 1;
+  }
 }
-
-p.visible {
-  opacity: 1;
-}
-
 
 /* For screens < 600px */
 
