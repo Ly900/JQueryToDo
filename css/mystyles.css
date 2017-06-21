@@ -22,6 +22,7 @@ h1#title {
   text-align: center;
   padding: 2%;
   margin: 2%;
+  letter-spacing: 2px;
   font-size: 4rem;
   font-weight: bolder; }
 
@@ -29,6 +30,7 @@ h1#title {
 input#to-do {
   width: 100%;
   border: 1px solid gray;
+  position: relative;
   border-top: 0;
   border-left: 0;
   border-right: 0;
@@ -37,6 +39,16 @@ input#to-do {
   font-size: 2rem; }
   input#to-do:focus {
     outline: none; }
+
+div.new-to-do-help {
+  color: #E91E63;
+  padding: 1%;
+  position: relative;
+  font-size: 20px;
+  font-weight: bolder;
+  font-size: 1.5rem; }
+  div.new-to-do-help.animated {
+    bottom: 20px; }
 
 /****** ADD BUTTON ******/
 button#add-to-do {

@@ -20,6 +20,14 @@ $(document).ready(function() {
         }
     })
 
+    $toDoInput.on("click", function() {
+      $(this).attr("placeholder", "");
+    })
+
+    $toDoInput.blur(function() {
+      $(this).attr("placeholder", "New To Do");
+    })
+
     function addToDo(newToDo) {
         var newLi = "<li class='to-do'>" + newToDo + "</li>";
         $toDoUl.append(newLi);
