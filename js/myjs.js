@@ -17,7 +17,6 @@ $(document).ready(function() {
         if (event.keyCode == 13) {
             $addBtn.click();
             return false;
-            console.log(event);
         }
     })
 

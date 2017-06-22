@@ -42,7 +42,7 @@ input#to-do {
   input#to-do:focus {
     outline: none; }
   input#to-do.animated-border {
-    border-bottom: 3px solid #E91E63; }
+    border-bottom: 1px solid #E91E63; }
 
 div.to-do-helper {
   color: #E91E63;
@@ -50,13 +50,13 @@ div.to-do-helper {
   bottom: 0;
   transition: .2s;
   opacity: 0;
+  padding: 1%;
   font-size: 20px;
   font-weight: bolder;
   font-size: 1.5rem; }
   div.to-do-helper.animated {
     bottom: 100px;
-    opacity: 1;
-    padding: 1%; }
+    opacity: 1; }
 
 /****** ADD BUTTON ******/
 button#add-to-do {
