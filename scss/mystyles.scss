@@ -69,6 +69,7 @@ div.to-do-helper {
   &.animated {
     bottom: 100px;
     opacity: 1;
+    padding: 1%;
   }
 }
 
@@ -111,16 +112,22 @@ div.message p {
     }
 }
 
-
 /****** TO DO'S ******/
-li.to-do {
-    padding: 2%;
-    cursor: pointer;
-    font-size: 2.5rem;
-    &:hover {
-        background-color: #eee;
-    }
+ol.to-do {
+  list-style-position: inside;
+  padding-left: 0;
+  li.to-do {
+      padding: 2%;
+      cursor: pointer;
+      font-size: 2.5rem;
+      &:hover {
+          background-color: #eee;
+      }
+  }
 }
+
+
+
 
 
 /* For screens < 600px */

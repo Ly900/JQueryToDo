@@ -52,7 +52,8 @@ div.to-do-helper {
   font-size: 1.5rem; }
   div.to-do-helper.animated {
     bottom: 100px;
-    opacity: 1; }
+    opacity: 1;
+    padding: 1%; }
 
 /****** ADD BUTTON ******/
 button#add-to-do {
@@ -85,12 +86,15 @@ div.message p {
     opacity: 1; }
 
 /****** TO DO'S ******/
-li.to-do {
-  padding: 2%;
-  cursor: pointer;
-  font-size: 2.5rem; }
-  li.to-do:hover {
-    background-color: #eee; }
+ol.to-do {
+  list-style-position: inside;
+  padding-left: 0; }
+  ol.to-do li.to-do {
+    padding: 2%;
+    cursor: pointer;
+    font-size: 2.5rem; }
+    ol.to-do li.to-do:hover {
+      background-color: #eee; }
 
 /* For screens < 600px */
 
