@@ -41,6 +41,7 @@ h1#title {
 input#to-do {
     width: 100%;
     border: 1px solid gray;
+    transition: border .5s;
     position: relative;
     border: {
       top: 0;
@@ -52,6 +53,9 @@ input#to-do {
     font-size: 2rem;
     &:focus {
       outline: none;
+    }
+    &.animated-border {
+      border-bottom: 3px solid $mainPinkColor;
     }
 }
 

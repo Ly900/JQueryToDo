@@ -31,6 +31,7 @@ h1#title {
 input#to-do {
   width: 100%;
   border: 1px solid gray;
+  transition: border .5s;
   position: relative;
   border-top: 0;
   border-left: 0;
@@ -40,6 +41,8 @@ input#to-do {
   font-size: 2rem; }
   input#to-do:focus {
     outline: none; }
+  input#to-do.animated-border {
+    border-bottom: 3px solid #E91E63; }
 
 div.to-do-helper {
   color: #E91E63;

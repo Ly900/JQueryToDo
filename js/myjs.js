@@ -22,18 +22,38 @@ $(document).ready(function() {
     })
 
     $toDoInput.on("click", function() {
-      $(this).attr("placeholder", "");
+      var input = $(this);
+      clearToDoInput(input);
+      animateInputBorder(input);
       moveToDoHelper();
     })
+
+    function clearToDoInput(input) {
+      input.attr("placeholder", "");
+    }
 
     function moveToDoHelper() {
       $toDoHelper.addClass("animated");
     }
 
+    function animateInputBorder(input) {
+      input.addClass("animated-border");
+    }
+
     $toDoInput.blur(function() {
-      $(this).attr("placeholder", "New To Do");
+      var input = $(this);
       hideToDoHelper();
+      undoClearInput(input);
+      unanimateBorder(input);
     })
+
+    function undoClearInput(input) {
+      input.attr("placeholder", "New To Do");
+    }
+
+    function unanimateBorder(input) {
+      input.removeClass("animated-border");
+    }
 
     function hideToDoHelper() {
       $toDoHelper.removeClass("animated");
