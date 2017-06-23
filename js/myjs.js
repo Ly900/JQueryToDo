@@ -5,6 +5,7 @@ $(document).ready(function() {
     var $toDoUl = $("ol.to-do");
     var $errorMsg = $("p");
     var $toDoHelper = $("div.to-do-helper");
+    var counter = 0;
 
     // Adds new to do list item to ordered list.
     $addBtn.on("click", function() {
@@ -25,7 +26,7 @@ $(document).ready(function() {
     // Clicking on To Do input.
     $toDoInput.on("click", function() {
         var input = $(this);
-        clearToDoInput(input);
+        // clearToDoInput(input);
         animateInputBorder(input);
         moveToDoHelper();
     })
@@ -55,7 +56,7 @@ $(document).ready(function() {
     $toDoInput.blur(function() {
         var input = $(this);
         hideToDoHelper();
-        undoClearInput(input);
+        // undoClearInput(input);
         unanimateBorder(input);
     })
 
@@ -76,9 +77,10 @@ $(document).ready(function() {
 
     // Adds a new list item with to do captured from input.
     function addToDo(newToDo) {
-        var newLi = "<li class='to-do'>" + newToDo + "</li>";
+        var newLi = "<li class='to-do'>" + newToDo + counter + "<span class='checkmark'>&#10004;</span></li>";
         $toDoUl.append(newLi);
-        $toDoInput.val("");
+        counter++;
+        // Code to clear input.
     }
 
     // Removes to do list item from ordered list.
@@ -98,7 +100,4 @@ $(document).ready(function() {
         return false;
 
     }
-
-    removeToDo();
-
 });

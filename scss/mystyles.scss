@@ -2,21 +2,22 @@ body,
 div,
 h1,
 html,
-p,
-li {
+li,
+p {
     padding: 0;
     margin: 0;
     border: 0;
     box-sizing: border-box;
 }
-
 /*********************************
 MAIN STYLES
 *********************************/
 $mainPinkColor: #E91E63;
+$lightGreen: #C8E6C9;
+$brightGreen: #4CAF50;
 
 html {
-  font-size: 16px;
+    font-size: 16px;
 }
 
 body {
@@ -36,48 +37,48 @@ h1#title {
         weight: bolder;
     }
 }
-
 /****** TO DO INPUT ******/
 input#to-do {
     width: 100%;
     border: 1px solid gray;
-    transition: border .5s;
+    transition: border 0.5s;
     position: relative;
     border: {
-      top: 0;
-      left: 0;
-      right: 0;
+        top: 0;
+        left: 0;
+        right: 0;
     }
     padding: 30px 5px 0;
     border-radius: 2px;
     font-size: 2rem;
+
     &:focus {
-      outline: none;
+        outline: none;
     }
+
     &.animated-border {
-      border-bottom: 1px solid $mainPinkColor;
+        border-bottom: 1px solid $mainPinkColor;
     }
 }
 
 div.to-do-helper {
-  color: #E91E63;
-  position: relative;
-  bottom: 0;
-  transition: .2s;
-  opacity: 0;
-  padding: 1%;
-  font: {
-    size: 20px;
-    weight: bolder;
-    size: 1.5rem;
-  }
-  &.animated {
-    bottom: 100px;
-    opacity: 1;
-  }
+    color: #E91E63;
+    position: relative;
+    bottom: 0;
+    transition: 0.2s;
+    opacity: 0;
+    padding: 1%;
+    font: {
+        size: 20px;
+        weight: bolder;
+        size: 1.5rem;
+    }
+
+    &.animated {
+        bottom: 100px;
+        opacity: 1;
+    }
 }
-
-
 /****** ADD BUTTON ******/
 button#add-to-do {
     text-transform: uppercase;
@@ -89,17 +90,19 @@ button#add-to-do {
     background-color: #E91E63;
     border: none;
     font: {
-      weight: bolder;
-      size: 3rem;
+        weight: bolder;
+        size: 3rem;
     }
-    &:active, &:focus {
-      outline: none;
+
+    &:active,
+    &:focus {
+        outline: none;
     }
+
     &:active {
-      top: 5px;
+        top: 5px;
     }
 }
-
 /****** ERROR MESSAGE ******/
 div.message p {
     display: block;
@@ -108,31 +111,39 @@ div.message p {
     color: red;
     opacity: 0;
     font-size: 1.8rem;
+
     &.invisible {
         opacity: 0;
     }
+
     &.visible {
         opacity: 1;
     }
 }
-
 /****** TO DO'S ******/
 ol.to-do {
-  list-style-position: inside;
-  padding-left: 0;
-  li.to-do {
-      padding: 2%;
-      cursor: pointer;
-      font-size: 2.5rem;
-      &:hover {
-          background-color: #eee;
-      }
-  }
+    list-style-position: inside;
+    padding-left: 0;
+
+    li.to-do {
+        padding: 2%;
+        cursor: pointer;
+        font-size: 2.5rem;
+        position: relative;
+        &:hover {
+            background-color: $lightGreen;
+        }
+        &:hover > span.checkmark{
+            right: 5%;
+        }
+    }
+
+    span.checkmark {
+        position: absolute;
+        color: $brightGreen;
+        right: -100%;
+        transition: right .2s;
+    }
 }
-
-
-
-
-
 /* For screens < 600px */
 @media (max-width: 600px) {}
