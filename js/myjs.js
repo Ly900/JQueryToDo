@@ -13,13 +13,11 @@ $(document).ready(function() {
         var newToDo = $toDoInput.val();
         if (!checkEmptyInput()) {
             addToDo(newToDo);
-            clearable = true;
         }
     })
 
     // Pressing Enter from keyboard adds to do.
     $toDoInput.keypress(function(event) {
-        event.preventPro
         if (event.keyCode == 13) {
             $addBtn.click();
             return false;
@@ -29,11 +27,9 @@ $(document).ready(function() {
 
     // Clicking on To Do input.
     $toDoInput.on("click", function() {
-        var input = $(this);
-        console.log(input.val());
-        console.log(clearable);
+        checkClearable();
         clearToDoInput();
-        animateInputBorder(input);
+        animateInputBorder();
         moveToDoHelper();
     })
 
@@ -52,37 +48,40 @@ $(document).ready(function() {
 
     // Animates input's bottom border when clicked on.
     function animateInputBorder(input) {
-        input.addClass("animated-border");
+        $toDoInput.addClass("animated-border");
     }
 
     // If user clicks outside the input, add button, or to do items list...
     $("body").on('click', function(evt) {
-        var $tgt = $(evt.target);
-        console.log($tgt);
-        if ($tgt.is($toDoInput) || $tgt.is($addBtn) || $tgt.hasClass("to-do")) {
-            console.log($tgt);
-            return;
-        } else {
-            if ($toDoInput.val() != "") {
-                clearable = false;
-            } else {
-              clearable = true;
-            }
-            console.log(clearable);
-            hideToDoHelper();
-            undoClearInput($toDoInput);
-            unanimateBorder($toDoInput);
-        }
+        unanimateInput(evt);
+        checkClearable();
     })
 
+    function unanimateInput(evt) {
+        var $tgt = $(evt.target);
+        if ($tgt.is($toDoInput) || $tgt.is($addBtn) || $tgt.hasClass("to-do")) {
+            return;
+        } else {
+            hideToDoHelper();
+            undoClearInput();
+            unanimateBorder();
+        }
+    };
+
+    function checkClearable() {
+      if ($toDoInput.val() != "") {
+          clearable = false;
+      }
+    }
+
     // Adds placeholder back into cleared input.
-    function undoClearInput(input) {
-        input.attr("placeholder", "New To Do");
+    function undoClearInput() {
+        $toDoInput.attr("placeholder", "New To Do");
     }
 
     // Removes animation from input's bottom border.
-    function unanimateBorder(input) {
-        input.removeClass("animated-border");
+    function unanimateBorder() {
+        $toDoInput.removeClass("animated-border");
     }
 
     // Hides "New To Do" animation under input again.
@@ -95,7 +94,6 @@ $(document).ready(function() {
         var newLi = "<li class='to-do'>" + newToDo + counter + "<span class='checkmark'>&#10004;</span></li>";
         $toDoUl.append(newLi);
         counter++;
-        console.log(clearable);
         clearable = true;
         clearToDoInput();
     }
@@ -114,7 +112,7 @@ $(document).ready(function() {
         $(toDoItem).remove();
         console.log(clearable);
         if ($toDoInput.val() != "") {
-          clearable = false;
+            clearable = false;
         }
         console.log(clearable);
     }
