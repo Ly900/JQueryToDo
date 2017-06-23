@@ -96,7 +96,8 @@ ol.to-do {
     padding: 2%;
     cursor: pointer;
     font-size: 2.5rem;
-    position: relative; }
+    position: relative;
+    width: 100%; }
     ol.to-do li.to-do:hover {
       background-color: #C8E6C9; }
     ol.to-do li.to-do:hover > span.checkmark {

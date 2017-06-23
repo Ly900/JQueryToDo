@@ -17,16 +17,18 @@ $(document).ready(function() {
 
     // Pressing Enter from keyboard adds to do.
     $toDoInput.keypress(function(event) {
+        event.preventPro
         if (event.keyCode == 13) {
             $addBtn.click();
             return false;
         }
+        return true;
     })
 
     // Clicking on To Do input.
     $toDoInput.on("click", function() {
         var input = $(this);
-        // clearToDoInput(input);
+        clearToDoInput();
         animateInputBorder(input);
         moveToDoHelper();
     })
@@ -37,14 +39,11 @@ $(document).ready(function() {
         removeToDo(toDoItem);
     });
 
-    // Clears to do input.
-    function clearToDoInput(input) {
-        input.attr("placeholder", "");
-    }
-
     // Moves hidden "New To Do" words above input area.
     function moveToDoHelper() {
-        $toDoHelper.addClass("animated");
+        if (!$toDoHelper.hasClass("animated")) {
+            $toDoHelper.addClass("animated");
+        }
     }
 
     // Animates input's bottom border when clicked on.
@@ -52,12 +51,17 @@ $(document).ready(function() {
         input.addClass("animated-border");
     }
 
-    // When the user clicks anywhere off the input.
-    $toDoInput.blur(function() {
-        var input = $(this);
-        hideToDoHelper();
-        // undoClearInput(input);
-        unanimateBorder(input);
+    $("body").on('click', function(evt) {
+        var $tgt = $(evt.target);
+        console.log($tgt);
+        if ($tgt.is($toDoInput) || $tgt.is($addBtn) || $tgt.hasClass("to-do")) {
+            console.log($tgt);
+            return;
+        } else {
+            hideToDoHelper();
+            undoClearInput($toDoInput);
+            unanimateBorder($toDoInput);
+        }
     })
 
     // Adds placeholder back into cleared input.
@@ -80,7 +84,13 @@ $(document).ready(function() {
         var newLi = "<li class='to-do'>" + newToDo + counter + "<span class='checkmark'>&#10004;</span></li>";
         $toDoUl.append(newLi);
         counter++;
-        // Code to clear input.
+        clearToDoInput();
+    }
+
+    // Clears to do input.
+    function clearToDoInput() {
+        $toDoInput.attr("placeholder", "");
+        $toDoInput.val("");
     }
 
     // Removes to do list item from ordered list.
