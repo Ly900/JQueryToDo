@@ -6,15 +6,15 @@ $(document).ready(function() {
     var $errorMsg = $("p");
     var $toDoHelper = $("div.to-do-helper");
     var counter = 0;
-    var canAddToInput = false;
+    var clearable = true;
 
     // Adds new to do list item to ordered list.
     $addBtn.on("click", function() {
         var newToDo = $toDoInput.val();
         if (!checkEmptyInput()) {
             addToDo(newToDo);
+            clearable = true;
         }
-        canAddToInput = false;
     })
 
     // Pressing Enter from keyboard adds to do.
@@ -31,9 +31,8 @@ $(document).ready(function() {
     $toDoInput.on("click", function() {
         var input = $(this);
         console.log(input.val());
-        console.log(canAddToInput);
-        canAddToInput == false;
-        if (input.val() != "" && canAddToInput == false) clearToDoInput();
+        console.log(clearable);
+        clearToDoInput();
         animateInputBorder(input);
         moveToDoHelper();
     })
@@ -65,10 +64,11 @@ $(document).ready(function() {
             return;
         } else {
             if ($toDoInput.val() != "") {
-              canAddToInput = true;
+                clearable = false;
             } else {
-              anAddToInput = false;
+              clearable = true;
             }
+            console.log(clearable);
             hideToDoHelper();
             undoClearInput($toDoInput);
             unanimateBorder($toDoInput);
@@ -95,20 +95,28 @@ $(document).ready(function() {
         var newLi = "<li class='to-do'>" + newToDo + counter + "<span class='checkmark'>&#10004;</span></li>";
         $toDoUl.append(newLi);
         counter++;
-        console.log(canAddToInput);
+        console.log(clearable);
+        clearable = true;
         clearToDoInput();
-        canAddToInput == false;
     }
 
     // Clears to do input.
     function clearToDoInput() {
-        $toDoInput.attr("placeholder", "");
-        $toDoInput.val("");
+        if (clearable == true) {
+            $toDoInput.attr("placeholder", "");
+            $toDoInput.val("");
+        }
+        console.log(clearable);
     }
 
     // Removes to do list item from ordered list.
     function removeToDo(toDoItem) {
         $(toDoItem).remove();
+        console.log(clearable);
+        if ($toDoInput.val() != "") {
+          clearable = false;
+        }
+        console.log(clearable);
     }
 
     // Shows a hidden error message if an empty to do input is submitted.
