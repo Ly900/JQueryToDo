@@ -1,6 +1,19 @@
 "use strict";
 
-var mysql = require('mysql')
+var mysql = require('mysql');
+var config = require('./config/config.js');
+
+var dbHost = config.dbHost;
+var dbUser = config.dbUser;
+var dbUserPW = config.dbUserPW;
+var dbName = config.dbName;
+
+var connection = mysql.createConnection({
+  host     : dbHost,
+  user     : dbUser,
+  password : dbUserPW,
+  database : dbName
+});
 
 connection.connect();
 
